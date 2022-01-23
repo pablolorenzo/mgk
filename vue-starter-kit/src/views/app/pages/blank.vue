@@ -202,11 +202,6 @@ export default {
     },
 
     async addServ() {
-      this.direccion = '';
-      this.provider = null;
-      this.creation_date = null;
-      this.finished_date = null;
-      this.status = null;
       this.addService({
         direccion: this.direccion,
         provider: this.provider,
@@ -214,6 +209,11 @@ export default {
         finished_date: this.finished_date,
         status: this.status,
       });
+      this.direccion = '';
+      this.provider = null;
+      this.creation_date = null;
+      this.finished_date = null;
+      this.status = null;
     },
     async addProv() {
       this.addProvider({
