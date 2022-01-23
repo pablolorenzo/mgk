@@ -4,7 +4,7 @@ function getServices() {
     method: 'GET'
   };
 
-  return fetch(`http://localhost:8000/api/services/`, requestOptions)
+  return fetch(`/api/services/`, requestOptions)
   .then(glovalService.handleResponse);
 }
 

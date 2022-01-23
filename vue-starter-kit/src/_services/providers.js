@@ -4,7 +4,7 @@ function getProviders() {
     method: 'GET'
   };
 
-  return fetch(`http://localhost:8000/api/service-type/`, requestOptions)
+  return fetch(`/api/service-type/`, requestOptions)
   .then(glovalService.handleResponse);
 }
 
@@ -13,7 +13,7 @@ function getStatuses() {
     method: 'GET'
   };
 
-  return fetch(`http://localhost:8000/api/service-status/`, requestOptions)
+  return fetch(`/api/service-status/`, requestOptions)
   .then(glovalService.handleResponse);
 }
 
@@ -34,7 +34,7 @@ function addService(parameters) {
     })
   };
 
-  return fetch(`http://localhost:8000/api/services/`, requestOptions)
+  return fetch(`/api/services/`, requestOptions)
   .then(glovalService.handleResponse);
 }
 function addBalanceItem(parameters) {
@@ -51,7 +51,7 @@ function addBalanceItem(parameters) {
     })
   };
 
-  return fetch(`http://localhost:8000/api/balance-item/`, requestOptions)
+  return fetch(`/api/balance-item/`, requestOptions)
   .then(glovalService.handleResponse);
 }
 
@@ -69,7 +69,7 @@ function addProvider(parameters) {
     })
   };
 
-  return fetch(`http://localhost:8000/api/service-type/`, requestOptions)
+  return fetch(`/api/service-type/`, requestOptions)
   .then(glovalService.handleResponse);
 }
 
@@ -89,7 +89,7 @@ function addCost(parameters) {
     })
   };
 
-  return fetch(`http://localhost:8000/api/balance-item-service/`, requestOptions)
+  return fetch(`/api/balance-item-service/`, requestOptions)
   .then(glovalService.handleResponse);
 }
 
@@ -98,7 +98,7 @@ function getBalanceType() {
     method: 'GET'
   };
 
-  return fetch(`http://localhost:8000/api/balance-item/`, requestOptions)
+  return fetch(`/api/balance-item/`, requestOptions)
   .then(glovalService.handleResponse);
 }
 
