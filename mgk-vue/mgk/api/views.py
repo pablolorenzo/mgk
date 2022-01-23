@@ -8,37 +8,40 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 from .serializers import ServiceStatusSerializer, ServiceTypeSerializer, ServiceSerializer, BalanceItemSerializer, BalanceItemServiceEntrySerializer, BalanceItemServiceEntrySerializerID
 from index.models import ServiceType, ServiceStatus, Service, BalanceItem, BalanceItemServiceEntry
 from .filters import ServiceFilter 
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
 
+@method_decorator(csrf_exempt, name='dispatch')
 class StandardResultsSetPagination(PageNumberPagination):
     page_size = 10
     page_size_query_param = 'page_size'
     max_page_size = 1000
-
+@method_decorator(csrf_exempt, name='dispatch')
 class ServiceStatusViewSet(viewsets.ModelViewSet):
     queryset = ServiceStatus.objects.all().order_by('status')
     serializer_class = ServiceStatusSerializer
-
+@method_decorator(csrf_exempt, name='dispatch')
 class ServiceTypeViewSet(viewsets.ModelViewSet):
     queryset = ServiceType.objects.all().order_by('service_type')
     serializer_class = ServiceTypeSerializer
-
+@method_decorator(csrf_exempt, name='dispatch')
 class ServiceViewSet(viewsets.ModelViewSet):
     queryset = Service.objects.all().order_by('id')
     serializer_class = ServiceSerializer
-
+@method_decorator(csrf_exempt, name='dispatch')
 class BalanceItemViewSet(viewsets.ModelViewSet):
     queryset = BalanceItem.objects.all().order_by('id')
     serializer_class = BalanceItemSerializer
-    
+@method_decorator(csrf_exempt, name='dispatch')  
 class BalanceItemServiceEntryViewSet(viewsets.ModelViewSet):
     queryset = BalanceItemServiceEntry.objects.all().order_by('id')
     serializer_class = BalanceItemServiceEntrySerializerID
-
+@method_decorator(csrf_exempt, name='dispatch')
 class ServicesViewSetAlt(mixins.ListModelMixin, viewsets.GenericViewSet):
     queryset = Service.objects.all()
     serializer_class = ServiceSerializer
     filter_backends = [DjangoFilterBackend]
-
+@method_decorator(csrf_exempt, name='dispatch')
 class ServicesViewSet(viewsets.ModelViewSet):
     queryset = Service.objects.all().order_by('id')
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
